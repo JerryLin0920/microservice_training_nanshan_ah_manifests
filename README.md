@@ -1,6 +1,6 @@
-# Microservice Training Nanshan Manifests
+# Microservice Training for Nanshan - Kubernetes Manifests
 
-> Kubernetes 部署檔 for 南山產險教育訓練
+> 南山產險微服務架構教育訓練 Kubernetes 部署檔
 
 首先要先從 [ICP Console](https://icp.softleader.com.tw:8443/console) 取得 token 登入 `kubectl`, 並且建立自己的 namespace:
 
