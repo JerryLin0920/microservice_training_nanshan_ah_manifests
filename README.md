@@ -1,4 +1,4 @@
-# Microservice Training for Nanshan - Kubernetes Manifests
+# Microservice Training - Kubernetes Manifests
 
 > 南山產險微服務架構教育訓練 Kubernetes 部署檔
 
