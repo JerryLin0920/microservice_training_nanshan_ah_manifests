@@ -1,0 +1,19 @@
+commonLabels:
+  app: integration
+resources:
+- ingress.yaml
+- deployment.yaml
+- service.yaml
+vars:
+  - name: INTEGRATION_INGRESS_PATH
+    objref:
+      kind: Ingress
+      name: integration
+      apiVersion: extensions/v1beta1
+    fieldref:
+      fieldpath: spec.rules[0].http.paths[0].path
+  - name: INTEGRATION_SERVICE
+    objref:
+      kind: Service
+      name: integration
+      apiVersion: v1

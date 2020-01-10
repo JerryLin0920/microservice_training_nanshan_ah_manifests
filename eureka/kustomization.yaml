@@ -1,0 +1,19 @@
+commonLabels:
+  app: eureka
+resources:
+- deployment.yaml
+- service.yaml
+- ingress.yaml
+vars:
+  - name: EUREKA_INGRESS_PATH
+    objref:
+      kind: Ingress
+      name: eureka
+      apiVersion: extensions/v1beta1
+    fieldref:
+      fieldpath: spec.rules[0].http.paths[0].path
+  - name: EUREKA_SERVICE
+    objref:
+      kind: Service
+      name: eureka
+      apiVersion: v1

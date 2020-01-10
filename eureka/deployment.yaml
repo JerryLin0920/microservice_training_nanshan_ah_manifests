@@ -1,0 +1,34 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: eureka
+spec:
+  replicas: 1
+  template:
+    spec:
+      imagePullSecrets:
+        - name: hub.softleader.com.tw
+      containers:
+      - name: eureka
+        image: "hub.softleader.com.tw/eureka:latest"
+        imagePullPolicy: IfNotPresent
+        readinessProbe:
+          httpGet:
+            path: /eureka/health
+            port: 8000
+        livenessProbe:
+          httpGet:
+            path: /eureka/info
+            port: 8000
+          initialDelaySeconds: 60
+        resources:
+          requests:
+            cpu: 0
+            memory: 128Mi
+          limits:
+            cpu: 2
+            memory: 768Mi
+        env:
+        - name: DEVOPS_OPTS
+          value: >-
+            -Dsoftleader.application.context-path=/eureka

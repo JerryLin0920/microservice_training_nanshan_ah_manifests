@@ -1,0 +1,12 @@
+commonLabels:
+  app: redis
+resources:
+- storage.yaml
+- deployment.yaml
+- service.yaml
+vars:
+  - name: REDIS_SERVICE
+    objref:
+      kind: Service
+      name: redis
+      apiVersion: v1

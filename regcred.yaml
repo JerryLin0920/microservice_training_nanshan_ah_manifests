@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: hub.softleader.com.tw
+data:
+  .dockerconfigjson: eyJhdXRocyI6eyJodWIuc29mdGxlYWRlci5jb20udHciOnsidXNlcm5hbWUiOiJkZXYiLCJwYXNzd29yZCI6InNsZWFkZXIiLCJlbWFpbCI6Im1hdHQuaG9Ac29mdGxlYWRlci5jb20udHciLCJhdXRoIjoiWkdWMk9uTnNaV0ZrWlhJPSJ9fX0=
+type: kubernetes.io/dockerconfigjson

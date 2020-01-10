@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: eureka
+  # annotations:
+  #   ingress.kubernetes.io/rewrite-target: /
+  #   nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /eureka
+            backend:
+              serviceName: eureka
+              servicePort: 80

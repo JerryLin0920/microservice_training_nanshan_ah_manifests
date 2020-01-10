@@ -1,0 +1,56 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: integration
+spec:
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 25%
+    type: RollingUpdate
+  replicas: 1
+  template:
+    spec:
+      imagePullSecrets:
+        - name: hub.softleader.com.tw
+      terminationGracePeriodSeconds: 60
+      containers:
+      - name: integration-rpc
+        image: "hub.softleader.com.tw/softleader-jasmine-integration-rpc:v2.5.0-demo10"
+        imagePullPolicy: Always
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 60
+          periodSeconds: 60
+          timeoutSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /info
+            port: 8080
+          initialDelaySeconds: 1800
+          periodSeconds: 600
+          timeoutSeconds: 10
+        resources:
+          requests:
+            cpu: 0
+            memory: 1024Mi
+          limits:
+            cpu: 2
+            memory: 3072Mi
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: "docker,efk"
+        - name: EUREKA_SERVICE
+          value: $(EUREKA_SERVICE)
+        - name: EUREKA_INGRESS_PATH
+          value: $(EUREKA_INGRESS_PATH)
+        - name: INTEGRATION_SERVICE
+          value: $(INTEGRATION_SERVICE)
+        - name: INTEGRATION_INGRESS_PATH
+          value: $(INTEGRATION_INGRESS_PATH)
+        - name: HELLO_SERVICE
+          value: $(HELLO_SERVICE)
+        - name: HELLO_INGRESS_PATH
+          value: $(HELLO_INGRESS_PATH)

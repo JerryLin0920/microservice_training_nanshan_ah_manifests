@@ -1,0 +1,9 @@
+namespace: training
+commonLabels:
+  env: training
+resources:
+- regcred.yaml
+- eureka
+- redis
+- hello
+- integration
