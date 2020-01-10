@@ -1,0 +1,2 @@
+# microservice_training_nanshan_ah_manifests
+Kubernetes 部署檔 for 南山產險教育訓練
