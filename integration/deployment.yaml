@@ -46,10 +46,6 @@ spec:
           value: $(EUREKA_SERVICE)
         - name: EUREKA_INGRESS_PATH
           value: $(EUREKA_INGRESS_PATH)
-        - name: INTEGRATION_SERVICE
-          value: $(INTEGRATION_SERVICE)
-        - name: INTEGRATION_INGRESS_PATH
-          value: $(INTEGRATION_INGRESS_PATH)
         - name: HELLO_SERVICE
           value: $(HELLO_SERVICE)
         - name: HELLO_INGRESS_PATH
