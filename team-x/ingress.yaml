@@ -12,4 +12,4 @@ spec:
           - path: /team-x
             backend:
               serviceName: team-x
-              servicePort: 80
+              servicePort: 8080
