@@ -6,4 +6,5 @@ resources:
 - eureka
 - redis
 - hello
+- team-x
 - integration
