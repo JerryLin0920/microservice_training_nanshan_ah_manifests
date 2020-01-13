@@ -15,7 +15,7 @@ spec:
         - name: hub.softleader.com.tw
       containers:
       - name: hello
-        image: "hub.softleader.com.tw/hello:0.0.9-nanshan"
+        image: "hub.softleader.com.tw/hello:0.0.16-nanshan"
         imagePullPolicy: Always
         readinessProbe:
           httpGet:
