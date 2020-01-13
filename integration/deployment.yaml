@@ -50,3 +50,7 @@ spec:
           value: $(HELLO_SERVICE)
         - name: HELLO_INGRESS_PATH
           value: $(HELLO_INGRESS_PATH)
+        - name: INTEGRATION_SERVICE
+          value: $(INTEGRATION_SERVICE)
+        - name: INTEGRATION_INGRESS_PATH
+          value: $(INTEGRATION_INGRESS_PATH)
