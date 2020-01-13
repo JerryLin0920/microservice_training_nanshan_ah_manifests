@@ -48,3 +48,7 @@ spec:
           value: $(HELLO_SERVICE)
         - name: HELLO_INGRESS_PATH
           value: $(HELLO_INGRESS_PATH)
+        - name: TEAM_X_SERVICE
+          value: $(TEAM_X_SERVICE)
+        - name: TEAM_X_INGRESS_PATH
+          value: $(TEAM_X_INGRESS_PATH)
