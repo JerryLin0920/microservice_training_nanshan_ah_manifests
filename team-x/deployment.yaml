@@ -15,7 +15,7 @@ spec:
         - name: hub.softleader.com.tw
       containers:
       - name: team-x
-        image: "hub.softleader.com.tw/team-x:0.0.1-nanshan"
+        image: "hub.softleader.com.tw/team-x:0.0.2-nanshan"
         imagePullPolicy: Always
         readinessProbe:
           httpGet:
