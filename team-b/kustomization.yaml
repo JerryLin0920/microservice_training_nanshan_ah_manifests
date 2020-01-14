@@ -1,0 +1,19 @@
+commonLabels:
+  app: team-b
+resources:
+- deployment.yaml
+- service.yaml
+- ingress.yaml
+vars:
+  - name: TEAM_BB_INGRESS_PATH
+    objref:
+      kind: Ingress
+      name: team-b
+      apiVersion: extensions/v1beta1
+    fieldref:
+      fieldpath: spec.rules[0].http.paths[0].path
+  - name: TEAM_BB_SERVICE
+    objref:
+      kind: Service
+      name: team-b
+      apiVersion: v1

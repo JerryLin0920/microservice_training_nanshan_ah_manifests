@@ -7,4 +7,5 @@ resources:
 - redis
 - hello
 - team-x
+- team-b
 - integration
