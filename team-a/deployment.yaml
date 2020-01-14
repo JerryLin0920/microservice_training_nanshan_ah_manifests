@@ -1,0 +1,54 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: team-a
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    spec:
+      imagePullSecrets:
+        - name: hub.softleader.com.tw
+      containers:
+      - name: team-a
+        image: "hub.softleader.com.tw/team-a:1.0.1-nanshan"
+        imagePullPolicy: Always
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+        livenessProbe:
+          httpGet:
+            path: /info
+            port: 8080
+          initialDelaySeconds: 60
+        resources:
+          requests:
+            cpu: 0
+            memory: 256Mi
+          limits:
+            cpu: 2
+            memory: 1024Mi
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: "docker,efk"
+        - name: EUREKA_SERVICE
+          value: $(EUREKA_SERVICE)
+        - name: EUREKA_INGRESS_PATH
+          value: $(EUREKA_INGRESS_PATH)
+        - name: INTEGRATION_SERVICE
+          value: $(INTEGRATION_SERVICE)
+        - name: INTEGRATION_INGRESS_PATH
+          value: $(INTEGRATION_INGRESS_PATH)
+        - name: HELLO_SERVICE
+          value: $(HELLO_SERVICE)
+        - name: HELLO_INGRESS_PATH
+          value: $(HELLO_INGRESS_PATH)
+        - name: TEAM_A_SERVICE
+          value: $(TEAM_A_SERVICE)
+        - name: TEAM_A_INGRESS_PATH
+          value: $(TEAM_A_INGRESS_PATH)
