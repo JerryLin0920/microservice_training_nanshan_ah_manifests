@@ -16,7 +16,7 @@ spec:
       terminationGracePeriodSeconds: 60
       containers:
       - name: integration-rpc
-        image: "hub.softleader.com.tw/integration:0.0.3-nanshan"
+        image: "hub.softleader.com.tw/integration:0.0.4-answer-nanshan"
         imagePullPolicy: Always
         readinessProbe:
           httpGet:
